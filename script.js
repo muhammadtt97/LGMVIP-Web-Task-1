@@ -6,7 +6,10 @@ function addTask() {
 
     if (taskText !== "") {
         const listItem = document.createElement("li");
-        listItem.innerHTML = `<span>${taskText}</span><button class="delete-button" onclick="deleteTask(this)">X</button>`;
+        listItem.innerHTML = `
+            <input type="checkbox" onclick="toggleTask(this)">
+            <span>${taskText}</span>
+            <button class="delete-button" onclick="deleteTask(this)">X</button>`;
         taskList.appendChild(listItem);
         taskInput.value = "";
     }
@@ -15,4 +18,13 @@ function addTask() {
 function deleteTask(button) {
     const listItem = button.parentElement;
     taskList.removeChild(listItem);
+}
+
+function toggleTask(checkbox) {
+    const taskText = checkbox.nextElementSibling;
+    if (checkbox.checked) {
+        taskText.style.textDecoration = "line-through";
+    } else {
+        taskText.style.textDecoration = "none";
+    }
 }
