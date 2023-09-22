@@ -6,7 +6,7 @@ function addTask() {
 
     if (taskText !== "") {
         const listItem = document.createElement("li");
-        listItem.innerHTML = `<span>${taskText}</span><button class="delete-button" onclick="deleteTask(this)">Delete</button>`;
+        listItem.innerHTML = `<span>${taskText}</span><button class="delete-button" onclick="deleteTask(this)">X</button>`;
         taskList.appendChild(listItem);
         taskInput.value = "";
     }
